@@ -1,5 +1,5 @@
 pipeline {
-    agent {label 'testing_Server', label 'production_Server'}
+    agent {label 'testing_Server || production_Server'}
    stages{
       stage("CodeClone"){
         steps{
