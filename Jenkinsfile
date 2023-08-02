@@ -1,5 +1,6 @@
 pipeline {
-    agent {label 'testing_Server'}
+    agent {label 'testing_Server',
+           label 'production_Server'}
    stages{
       stage("CodeClone"){
         steps{
@@ -19,13 +20,7 @@ pipeline {
                 }
             }
         }
-    }
-}
-
-pipeline {
-    agent {label 'testing_Server'}
-    stages {
-        stage('Run Tests') {
+    stage('Run Tests') {
             steps {
                 script {
                     def imageName = "ommaxyl/job1:latest"
@@ -36,12 +31,6 @@ pipeline {
                 }
             }
         }
-    }
-}
-    
-pipeline {
-    agent {label 'production_Server'}
-    stages {
         stage('Deploy to Prod') {
             steps {
                 script {
@@ -72,3 +61,7 @@ pipeline {
         }
     }
 }
+
+   
+
+    
