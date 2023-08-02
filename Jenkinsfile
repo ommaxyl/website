@@ -19,13 +19,7 @@ pipeline {
                 }
             }
         }
-    }
-}
-
-pipeline {
-    agent {label 'testing_Server'}
-    stages {
-        stage('Run Tests') {
+    stage('Run Tests') {
             steps {
                 script {
                     def imageName = "ommaxyl/job1:latest"
@@ -38,4 +32,3 @@ pipeline {
         }
     }
 }
-    
