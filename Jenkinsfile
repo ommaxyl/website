@@ -1,5 +1,6 @@
 pipeline {
     agent {label 'testing_Server'}
+    agent{label 'production_Server'}
    stages{
       stage("CodeClone"){
         steps{
@@ -19,7 +20,6 @@ pipeline {
                 }
             }
         }
-       agent{label 'production_Server'}
     stage('Run Tests') {
             steps {
                 script {
