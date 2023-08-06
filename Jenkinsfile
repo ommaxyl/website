@@ -39,7 +39,7 @@ pipeline {
                     def remoteUser = 'ubuntu'
                     
                     // sh "ssh-keyscan -H ${host} >> ~/.ssh/known_hosts"
-                     sh "cat ssh-keyscan -H production"
+                     //sh "cat ssh-keyscan production"
                      
                     sshagent(['docker-hub-private-key']) {
                         sh "ssh ${remoteUser}@${host} 'sudo docker pull ${imageName}'"
