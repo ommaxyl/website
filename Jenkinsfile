@@ -38,7 +38,7 @@ pipeline {
                     def prodContainerName = 'productionContainer'
                     def remoteUser = 'ubuntu'
                     
-                     sh "ssh-keyscan -H ${host} >> ~/.ssh/known_hosts"
+                    // sh "ssh-keyscan -H ${host} >> ~/.ssh/known_hosts"
                      
                     sshagent(['docker-hub-private-key']) {
                         sh "ssh ${remoteUser}@${host} 'sudo docker pull ${imageName}'"
