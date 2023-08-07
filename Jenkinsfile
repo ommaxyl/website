@@ -34,7 +34,7 @@ pipeline {
             steps {
                 script {
                     def imageName = 'ommaxyl/job1:latest'
-                    def host = 'production.moe2023.local'
+                    def host = '54.197.71.31 '
                     def prodContainerName = 'productionContainer'
                     def remoteUser = 'ubuntu'
                     
