@@ -35,7 +35,7 @@ pipeline {
                 script {
                     def imageName = 'ommaxyl/job1:latest'
                     def host = '172.31.94.100'
-                    def prodContainerName = 'newproductionContainer'
+                    def prodContainerName = 'productionContainer'
                     def remoteUser = 'ubuntu'
                     
                      sh "ssh-keyscan -H ${host} >> ~/.ssh/known_hosts"
