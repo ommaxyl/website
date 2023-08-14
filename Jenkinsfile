@@ -40,11 +40,11 @@ pipeline {
                     def prodContainerName = 'productionContainer'
                     def remoteUser = 'ubuntu'
                     
-                     sh "ssh-keyscan -H ${host} >> ~/.ssh/known_hosts"
+                     //sh "ssh-keyscan -H ${host} >> ~/.ssh/known_hosts"
                      //sh "cat ssh-keyscan production"
                      
                     sshagent(['docker-hub-private-key']) {
-                        sh 'sudo docker pull ${imageName}'
+                        sh  'sudo docker pull ${imageName}'
                         sh 'sudo docker stop ${prodContainerName} || true'
                         sh 'sudo docker rm ${prodContainerName} || true'
                         sh 'sudo docker run -d --name ${prodContainerName} -p 80:80 ${imageName}'
