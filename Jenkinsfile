@@ -1,5 +1,5 @@
 pipeline {
-    agent none
+    agent any
    stages{
       stage("CodeClone"){
           agent {label 'testing_Server'}
