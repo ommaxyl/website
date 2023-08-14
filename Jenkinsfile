@@ -7,7 +7,6 @@ pipeline {
         }
       }
         stage('Build Docker Image') {
-            agent {label 'testing_Server'}
             steps {
                 script {
                     def imageName = "ommaxyl/job1:latest"
