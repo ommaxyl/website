@@ -22,7 +22,7 @@ pipeline {
             }
         }
     stage('Run Tests') {
-           
+           agent {label 'testing_Server'}
             steps {
                 script {
                     def imageName = "ommaxyl/job1:latest"
