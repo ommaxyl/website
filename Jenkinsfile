@@ -1,8 +1,8 @@
 pipeline {
-    agent any
+    agent {label 'testing_Server'}
    stages{
       stage("CodeClone"){
-         agent {label 'testing_Server'}
+        
         steps{
           git credentialsId: 'github-Cred', url: 'https://github.com/ommaxyl/website.git'
         }
