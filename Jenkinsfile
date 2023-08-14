@@ -1,7 +1,8 @@
 pipeline {
-    agent {label 'testing_Server'}
+    agent none
    stages{
       stage("CodeClone"){
+          agent {label 'testing_Server'}
         steps{
           git credentialsId: 'github-Cred', url: 'https://github.com/ommaxyl/website.git'
         }
@@ -31,10 +32,11 @@ pipeline {
             }
         }
         stage('Deploy to Prod') {
+            agent {label 'production_Server'}
             steps {
                 script {
                     def imageName = 'ommaxyl/job1:latest'
-                    def host = '172.31.94.100'
+                    //def host = '172.31.94.100'
                     def prodContainerName = 'productionContainer'
                     def remoteUser = 'ubuntu'
                     
