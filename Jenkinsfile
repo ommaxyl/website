@@ -35,19 +35,19 @@ pipeline {
             agent {label 'production_Server'}
             steps {
                 script {
-                    def imageName = 'ommaxyl/job1:latest'
+                    //def imageName = 'ommaxyl/job1:latest'
                     //def host = '172.31.94.100'
-                    def prodContainerName = 'productionContainer'
+                    //def prodContainerName = 'productionContainer'
                     def remoteUser = 'ubuntu'
                     
                      //sh "ssh-keyscan -H ${host} >> ~/.ssh/known_hosts"
                      //sh "cat ssh-keyscan production"
                      
                     sshagent(['docker-hub-private-key']) {
-                        sh  'sudo docker pull ${imageName}'
-                        sh 'sudo docker stop ${prodContainerName} || true'
-                        sh 'sudo docker rm ${prodContainerName} || true'
-                        sh 'sudo docker run -d --name ${prodContainerName} -p 80:80 ${imageName}'
+                        sh 'sudo docker pull ommaxyl/job1:latest'
+                        sh 'sudo docker stop productionContainer || true'
+                        sh 'sudo docker rm productionContainer|| true'
+                        sh 'sudo docker run -d --name productionContainer -p 80:80 ommaxyl/job1:latest'
                     }
                 }
             }
