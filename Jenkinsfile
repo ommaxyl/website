@@ -1,13 +1,14 @@
 pipeline {
-    agent {label 'testing_Server'}
+    agent none
    stages{
       stage("CodeClone"){
-        
+        agent {label 'testing_Server'}
         steps{
           git credentialsId: 'github-Cred', url: 'https://github.com/ommaxyl/website.git'
         }
       }
         stage('Build Docker Image') {
+            agent {label 'testing_Server'}
             steps {
                 script {
                     def imageName = "ommaxyl/job1:latest"
