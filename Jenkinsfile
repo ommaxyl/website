@@ -36,7 +36,7 @@ pipeline {
             steps {
                 script {
                     def imageName = 'ommaxyl/job1:latest'
-                    //def host = '172.31.94.100'
+                    def host = '172.31.94.100'
                     def prodContainerName = 'productionContainer'
                     def remoteUser = 'ubuntu'
                     
